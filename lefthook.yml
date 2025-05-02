@@ -1,0 +1,18 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: yarn run format
+    lint:
+      run: yarn lint
+      root: true
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit $1
+
+post-merge:
+  commands:
+    install-deps-postmerge:
+      run: npx yarn install
