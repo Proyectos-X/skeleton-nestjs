@@ -3,6 +3,7 @@ export enum ErrorType {
   AccessTokenExpired = 'ACCESS_TOKEN_EXPIRED',
   RefreshTokenExpired = 'REFRESH_TOKEN_EXPIRED',
   PermissionExists = 'PERMISSION_EXISTS',
+  AlreadyExists = 'ALREADY_EXISTS',
   RoleExists = 'ROLE_EXISTS',
   UserExists = 'USER_EXISTS',
   InvalidCurrentPassword = 'INVALID_CURRENT_PASSWORD',
@@ -10,4 +11,5 @@ export enum ErrorType {
   BlockedUser = 'BLOCKED_USER',
   InactiveUser = 'INACTIVE_USER',
   ForeignKeyConflict = 'FOREIGN_KEY_CONFLICT',
+  UnexpectedError = 'UNEXPECTED_ERROR',
 }

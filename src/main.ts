@@ -4,13 +4,17 @@ import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { GlobalExceptionFilter } from './common/http';
 import { SwaggerConfig } from './config/swagger.config';
+import { TypeOrmExceptionFilter } from './database/typeorm-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
   app.enableCors();
-  app.useGlobalFilters(new GlobalExceptionFilter(configService));
+  app.useGlobalFilters(
+    new GlobalExceptionFilter(configService),
+    new TypeOrmExceptionFilter(configService),
+  );
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix(AppModule.apiPrefix);
   SwaggerConfig(app, AppModule.apiVersion);
