@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './modules/auth/auth.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { validationSchema } from './config/env.validation';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { validationSchema } from './config/env.validation';
       envFilePath: [`.env.${process.env.NODE_ENV}`],
       validationSchema,
     }),
+    DatabaseModule,
     AuthModule,
     AdminModule,
   ],
