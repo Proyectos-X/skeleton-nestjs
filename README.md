@@ -1,37 +1,110 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<h1 align="center">
+  Skeleton NestJS
+</h1>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<div align="center">
+<img src="./assets/cover.png" />
+</a>
 
-## Description
+<p></p>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="#-getting-started">🤝 Contribute</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 
-## Project setup
+</div>
+
+# 🧱 Skeleton NestJS Project
+
+Este proyecto es un **template base** para aplicaciones NestJS, actualmente en construcción y con futuras mejoras planificadas.  
+Está pensado para ofrecer una estructura escalable, herramientas modernas de desarrollo, y buenas prácticas integradas desde el inicio.
+
+---
+## 🚀 Características Incluidas
+
+- ⚙️ **TypeORM** – ORM para PostgreSQL con soporte para relaciones, repositorios, y migraciones personalizadas.
+- 🧬 **Graphile Migrate** – Herramienta de migraciones SQL basada en archivos, con control explícito del esquema.
+- 🧾 **Commitlint** – Validación de mensajes de commits bajo convención (Conventional Commits).
+- 🎯 **Lefthook** – Hooks automáticos para lint, test, etc. al hacer commits.
+- 🎨 **Prettier** – Formateador de código consistente.
+- 🧹 **ESLint** – Análisis estático de calidad de código con reglas extendidas para TypeScript.
+- 🌍 **Manejo de entornos** – Soporte claro para `.env.dev` y `.env.prod` con `cross-env` y scripts segmentados.
+
+---
+## 🛠️ Estructura de entorno
 
 ```bash
-$ yarn install
+.
+├── src/
+│   ├── common/                 # Utilidades compartidas como filtros globales o helpers
+│   ├── config/                 # Configuraciones del sistema (env validation, swagger, etc.)
+│   ├── database/               # Configuración de TypeORM y entidades base
+│   │   ├── entity/             # Entidades reutilizables (ej. BaseEntity con timestamps)
+│   ├── modules/               # Módulos organizados por dominio (ej. admin, auth)
+│   │   ├── admin/              # Módulo de administración
+│   │   ├── auth/               # (Pendiente de implementación) Módulo de autenticación
+│   ├── utils/                  # Funciones auxiliares o wrappers del proyecto
+│   ├── app.module.ts          # Módulo raíz de la aplicación NestJS
+│   └── main.ts                # Punto de entrada principal
+│
+├── migrations/                # Archivos SQL de migraciones generados por graphile-migrate
+├── scripts/                   # Scripts utilitarios (ej. migrate.sh para cargar env y ejecutar)
+├── test/                      # Tests de integración y unitarios
+│
+├── .env.dev                   # Variables de entorno para desarrollo
+├── .env.prod                  # Variables de entorno para producción
+├── .env.example               # Archivo ejemplo de configuración de entorno
+│
+├── .gmrc.js                   # Configuración de graphile-migrate
+├── docker-compose.yml         # Orquestación de servicios externos como PostgreSQL
+├── package.json               # Dependencias y scripts
+├── README.md                  # Documentación principal del proyecto
+└── tsconfig*.json             # Configuración de TypeScript para compilación y paths
+
 ```
 
-## Compile and run the project
+## 🛠️ Pasos para empezar a desarrollar
+### 1. Clona el repositorio
+```bash
+git clone https://github.com/Proyectos-X/skeleton-nestjs
+cd skeleton-nestjs
+```
+
+### 2. Instala las dependencias
+```bash
+yarn install
+```
+
+### 3. Copia el archivo de ejemplo y edita tus variables:
+```bash
+cp .env.example .env.dev
+```
+
+### 4. Aplica las migraciones
+```bash
+yarn db:migrate:dev
+```
+
+### 5. Inicia la aplicación
+```bash
+yarn start:dev
+```
+
+### 🧪 Scripts útiles
+
+| Comando              | Descripción                                                      |
+|----------------------|------------------------------------------------------------------|
+| `yarn start:dev`     | Inicia NestJS en modo desarrollo                                 |
+| `yarn db:watch:dev`  | Aplica `current.sql` automáticamente al guardar                  |
+| `yarn db:commit:dev` | Confirma la migración actual y la guarda en `committed/`         |
+| `yarn db:migrate:dev`| Ejecuta todas las migraciones confirmadas                        |
+| `yarn db:reset:dev`  | Elimina y reconstruye la base de datos desde cero                |
+| `yarn lint`          | Ejecuta ESLint y Prettier                                        |
+| `yarn test`          | Corre los tests con Jest                                         |
+
+
+## Opciones de compilación
 
 ```bash
 # development
@@ -57,42 +130,14 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Guillermo Zevallos](https://github.com/ZevaGuillo)
 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+> ⚠️ **Nota**: Este template aún está en desarrollo activo.  
+> Se esperan futuras implementaciones como autenticación, sistema de permisos, seeders, testing e2e y CI/CD.
