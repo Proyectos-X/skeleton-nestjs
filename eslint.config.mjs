@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['eslint.config.mjs'],
+    ignores: ['eslint.config.mjs', '.gmrc.js'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -32,7 +32,10 @@ export default tseslint.config(
       '@typescript-eslint/interface-name-prefix': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      "sort-imports": ["warn", { "ignoreCase": true, "ignoreDeclarationSort": true }],
+      'sort-imports': [
+        'warn',
+        { ignoreCase: true, ignoreDeclarationSort: true },
+      ],
       'prettier/prettier': ['error'],
     },
   },

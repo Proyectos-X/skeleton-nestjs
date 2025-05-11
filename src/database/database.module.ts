@@ -13,8 +13,8 @@ const defaultConnection = (config: ConfigService): TypeOrmModuleOptions => ({
   username: config.get('POSTGRES_USER'),
   password: config.get('POSTGRES_PASSWORD'),
   database: config.get('POSTGRES_DB'),
-  synchronize: true,
-  autoLoadEntities: true,
+  synchronize: false,
+  autoLoadEntities: false,
   logging: config.get('TYPEORM_LOGGING') == 'true',
 });
 

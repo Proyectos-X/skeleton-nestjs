@@ -18,7 +18,15 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "db:watch:dev": "sh scripts/migrate.sh dev watch",
+    "db:commit:dev": "sh scripts/migrate.sh dev commit -m",
+    "db:migrate:dev": "sh scripts/migrate.sh dev migrate",
+    "db:reset:dev": "sh scripts/migrate.sh dev reset",
+    "db:watch:prod": "sh scripts/migrate.sh prod watch",
+    "db:commit:prod": "sh scripts/migrate.sh prod commit -m",
+    "db:migrate:prod": "sh scripts/migrate.sh prod migrate",
+    "db:reset:prod": "sh scripts/migrate.sh prod reset"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -32,6 +40,7 @@
     "class-validator": "^0.14.2",
     "conventional-changelog-atom": "^5.0.0",
     "cross-env": "^7.0.3",
+    "graphile-migrate": "^1.4.1",
     "joi": "^17.13.3",
     "pg": "^8.15.6",
     "reflect-metadata": "^0.2.2",
